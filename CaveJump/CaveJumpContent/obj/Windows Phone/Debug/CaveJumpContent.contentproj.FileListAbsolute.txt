@@ -1,0 +1,2 @@
+C:\Users\Gopi\code\cs\WP7Game2\CaveJump\CaveJumpContent\obj\Windows Phone\Debug\ResolveAssemblyReference.cache
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJumpContent\obj\Windows Phone\Debug\ResolveAssemblyReference.cache

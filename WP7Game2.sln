@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaveJump", "CaveJump\CaveJump\CaveJump.csproj", "{0274C619-C2BF-41CE-A27D-D9E3C3945932}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "CaveJumpContent", "CaveJump\CaveJumpContent\CaveJumpContent.contentproj", "{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juicy.Engine", "..\GameEngine\Juicy.Engine\Juicy.Engine.csproj", "{96547C05-7EE1-4439-85B3-0FC95A8C298D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Windows Phone.Build.0 = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
