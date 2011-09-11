@@ -25,6 +25,9 @@ namespace Cavejump.Screens
         private int concurrentSceneCount = 4;
         private int lastScreenOffset = 0;
         private int distanceTravelled = 0;
+
+        private int lastRightBottom = -1;
+
         private GameMapData mapData;
         private GameObj speedBar;
         private GameObj speedKnob;
@@ -62,13 +65,13 @@ namespace Cavejump.Screens
             }
 
             skateObj = new Skater();
-
-            base.ObjectManager.AddGameObject(skateObj, Constants.LANE_F_M);
+            skateObj.Lane = Constants.LANE_F_M;
+            base.ObjectManager.AddGameObject(skateObj, skateObj.Lane);
 
             int roadTopEdge = (int) roadObjects[0].Position.Y - roadObjects[0].H/2 - skateObj.H/2 + 20;
-            LanePositionY.Add(Constants.LANE_B_B, roadTopEdge);
-            LanePositionY.Add(Constants.LANE_B_M, roadTopEdge + 15);
-            LanePositionY.Add(Constants.LANE_B_F, roadTopEdge + 30);
+            LanePositionY.Add(Constants.LANE_M_B, roadTopEdge);
+            LanePositionY.Add(Constants.LANE_M_M, roadTopEdge + 15);
+            LanePositionY.Add(Constants.LANE_M_F, roadTopEdge + 30);
             int roadBottomEdge = (int)roadObjects[0].Position.Y + roadObjects[0].H / 2 - skateObj.H/2 + 10;
 
             LanePositionY.Add(Constants.LANE_F_B, roadBottomEdge - 30);
@@ -85,7 +88,6 @@ namespace Cavejump.Screens
             {
                 SpriteName = "knob"
             };
-
 
             base.ObjectManager.AddScreenObject(speedBar);
             speedBar.UpdatePosition(200, game.Graphics.PreferredBackBufferHeight - speedBar.H - 10);
@@ -159,7 +161,7 @@ namespace Cavejump.Screens
 
             int offset = lastScreenOffset;
 
-            go.UpdatePosition(so.X + offset, so.Lane == Constants.LANE_F_M ? 480 - 130 : 480 - 180);
+            go.UpdatePosition(so.X + offset, LanePositionY[so.Lane]);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime time)
@@ -199,26 +201,94 @@ namespace Cavejump.Screens
 
         public override bool HandleTouch(TouchCollection tc)
         {
-            TouchLocation tl = tc[0];
+            int lowerLeft = -1;
+            int upperLeft = -1;
+            int lowerRight = -1;
+            int upperRight = -1;
 
-            if (tl.Position.X < 400 && tl.State == TouchLocationState.Released)
+            for (int i = 0; i < tc.Count; i++)
             {
-                int startTemp = (int)  (speedBar.Position.X - speedBar.W / 2);
-                int temp =(int) (tl.Position.X - startTemp);
-
-                if (temp < 0) temp = 0;
-                if (temp > 300) temp = 300;
-
-                speed = temp / 30;
-
-                speedKnob.UpdatePosition(startTemp + speed * 30, speedKnob.Position.Y);
+                if (tc[i].Position.X < 400) // left
+                {
+                    if (tc[i].Position.Y < 240) // top
+                    {
+                        upperLeft = i;
+                    }
+                    else // bottom
+                    {
+                        lowerLeft = i;
+                    }
+                }
+                else // right
+                {
+                    if (tc[i].Position.Y < 240) // top
+                    {
+                        upperRight = i;
+                    }
+                    else // bottom
+                    {
+                        lowerRight = i;
+                    }
+                }
             }
-            else if (tl.State == TouchLocationState.Released && !skateObj.IsJumping)
+
+            if (lowerLeft > -1)
             {
-                skateObj.StartJump();
+                TouchLocation tl = tc[lowerLeft];
+
+                if (tl.Position.X < 400)
+                {
+                    int startTemp = (int)(speedBar.Position.X - speedBar.W / 2);
+                    int temp = (int)(tl.Position.X - startTemp);
+
+                    if (temp < 0) temp = 0;
+                    if (temp > 300) temp = 300;
+
+                    speed = temp / 30;
+
+                    speedKnob.UpdatePosition(startTemp + speed * 30, speedKnob.Position.Y);
+                }
+            }
+
+            if (upperRight > -1)
+            {
+                TouchLocation tl = tc[upperRight];
+
+                if (tl.State == TouchLocationState.Released)
+                {
+                    skateObj.StartJump();
+                }
+            }
+
+            if (lowerRight > -1)
+            {
+                TouchLocation tl = tc[lowerRight];
+
+                if (tl.State == TouchLocationState.Pressed)
+                {
+                    lastRightBottom = (int) tl.Position.Y;
+                }
+                else if (tl.State == TouchLocationState.Moved)
+                {
+                    int temp = (int)tl.Position.Y - lastRightBottom;
+                    MoveSkaterLane(temp / 40);
+                }
             }
 
             return true;
+        }
+
+        private void MoveSkaterLane(int delta)
+        {
+            int lane = skateObj.Lane;
+
+            lane = lane - delta;
+
+            lane = lane < Constants.MIN_LANE ? Constants.MIN_LANE : lane;
+            lane = lane > Constants.MAX_LANE ? Constants.MAX_LANE : lane;
+            skateObj.Lane = lane;
+
+            skateObj.UpdatePosition(skateObj.Position.X, LanePositionY[lane]);
         }
 
         private void loadObjectsOfScene(int scene)

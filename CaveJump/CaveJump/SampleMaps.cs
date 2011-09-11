@@ -21,7 +21,7 @@ namespace CaveJump
                     scene.Objects.Add(new SceneObject
                     {
                         Type = Constants.ROAD_BLOCK_T,
-                        Lane = (j % 2) == 0 ? Constants.LANE_F_M : Constants.LANE_B_M,
+                        Lane = (j % 2) == 0 ? Constants.LANE_F_M : Constants.LANE_F_M,
                         SceneId = i,
                         X = (j+1)*(800/3),
                         W = 30,

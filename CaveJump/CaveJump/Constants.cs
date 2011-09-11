@@ -15,9 +15,12 @@ namespace CaveJump
         public const int LANE_M_M = 16;
         public const int LANE_M_B = 15;
 
-        public const int LANE_B_F = 14;
+        public const int LANE_B_B = 14;
         public const int LANE_B_M = 13;
-        public const int LANE_B_B = 12;
+        public const int LANE_B_F = 12;
+
+        public const int MIN_LANE = LANE_M_B;
+        public const int MAX_LANE = LANE_F_F;
 
         public const int ROAD = 1;
         public const int ON_ROAD = 2;
