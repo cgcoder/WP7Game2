@@ -17,41 +17,89 @@ namespace Cavejump.Screens
     {
         private List<GameObj> freeGameObjects;
         private Dictionary<int, List<GameObj>> gameObjects;
+        private Dictionary<int, int> LanePositionY;
         private GameObj[] roadObjects;
-
+        private Skater skateObj;
         private int speed;
         private int currentSceneId;
         private int concurrentSceneCount = 4;
         private int lastScreenOffset = 0;
         private int distanceTravelled = 0;
         private GameMapData mapData;
+        private GameObj speedBar;
+        private GameObj speedKnob;
 
         public PlayScreen2()
         {
             freeGameObjects = new List<GameObj>();
             gameObjects = new Dictionary<int, List<GameObj>>();
             roadObjects = new GameObj[6];
+
+            LanePositionY = new Dictionary<int, int>();
         }
 
         public override void LoadSprites(ContentManager conMan)
         {
             game.SprManager.LoadSprite("road");
             game.SprManager.LoadSprite("road_block");
+            game.SprManager.LoadSprite("boy_skate");
+            game.SprManager.LoadSprite("speed");
+            game.SprManager.LoadSprite("knob");
+            game.SprManager.LoadSprite("boy_shadow");
         }
 
         public override void ScreenBecomesCurrent()
         {
+            freeGameObjects.Clear();
+            gameObjects.Clear();
+
             for (int i = 0; i < roadObjects.Length; i++)
             {
                 roadObjects[i] = new GameObj();
                 roadObjects[i].SpriteName = "road";
-                base.ObjectManager.AddGameObject(roadObjects[i]);
+                base.ObjectManager.AddGameObject(roadObjects[i], Constants.ROAD);
                 roadObjects[i].UpdatePosition(roadObjects[i].W / 2 + i * roadObjects[i].W, 480 - roadObjects[i].H - 50);
             }
 
-            freeGameObjects.Clear();
-            gameObjects.Clear();
+            skateObj = new Skater();
 
+            base.ObjectManager.AddGameObject(skateObj, Constants.LANE_F_M);
+
+            int roadTopEdge = (int) roadObjects[0].Position.Y - roadObjects[0].H/2 - skateObj.H/2 + 20;
+            LanePositionY.Add(Constants.LANE_B_B, roadTopEdge);
+            LanePositionY.Add(Constants.LANE_B_M, roadTopEdge + 15);
+            LanePositionY.Add(Constants.LANE_B_F, roadTopEdge + 30);
+            int roadBottomEdge = (int)roadObjects[0].Position.Y + roadObjects[0].H / 2 - skateObj.H/2 + 10;
+
+            LanePositionY.Add(Constants.LANE_F_B, roadBottomEdge - 30);
+            LanePositionY.Add(Constants.LANE_F_M, roadBottomEdge - 15);
+            LanePositionY.Add(Constants.LANE_F_F, roadBottomEdge);
+            skateObj.UpdatePosition(100, LanePositionY[skateObj.ZOrder]);
+
+            speedBar = new GameObj
+            {
+                SpriteName = "speed"
+            };
+
+            speedKnob = new GameObj
+            {
+                SpriteName = "knob"
+            };
+
+
+            base.ObjectManager.AddScreenObject(speedBar);
+            speedBar.UpdatePosition(200, game.Graphics.PreferredBackBufferHeight - speedBar.H - 10);
+
+            base.ObjectManager.AddScreenObject(speedKnob);
+            speedKnob.UpdatePosition(50, speedBar.Position.Y);
+
+            skateObj.Shadow = new GameObj
+            {
+                SpriteName = "boy_shadow"
+            };
+
+            base.ObjectManager.AddGameObject(skateObj.Shadow, Constants.ON_ROAD);
+            skateObj.syncShadowPosition();
             LoadMap();
         }
 
@@ -60,14 +108,14 @@ namespace Cavejump.Screens
             currentSceneId = -1;
             mapData = SampleMaps.GetSampleMap1();
 
-            LoadCurrentScene();
+            LoadNextScene();
         }
 
-        private void LoadCurrentScene()
+        private void LoadNextScene()
         {
             List<GameObj> tempList = null;
 
-            if (currentSceneId != -1) // first load
+            if (currentSceneId != -1) // not first load
             {
                 if (gameObjects.ContainsKey(currentSceneId))
                 {
@@ -77,7 +125,7 @@ namespace Cavejump.Screens
                     // reclaim object
                     foreach (GameObj obj in tempList)
                     {
-                        base.ObjectManager.RemoveGameObj(obj);
+                        base.ObjectManager.RemoveGameObj(obj, obj.ZOrder);
                         freeGameObjects.Add(obj);
                     }
 
@@ -90,74 +138,15 @@ namespace Cavejump.Screens
             // first scene is a special case
             if (currentSceneId == 0)
             {
-                for (int i = currentSceneId; i < currentSceneId + concurrentSceneCount; i++)
+                for (int i = 0; i < concurrentSceneCount; i++)
                 {
-                    foreach (SceneObject so in mapData.Scenes[i].Objects)
-                    {
-                        GameObj go = null;
-
-                        if (freeGameObjects.Count > 0)
-                        {
-                            go = freeGameObjects[0];
-                            freeGameObjects.RemoveAt(0);
-                        }
-                        else
-                        {
-                            go = new GameObj();
-                        }
-
-                        List<GameObj> usedLst = null;
-
-                        if (!gameObjects.ContainsKey(currentSceneId))
-                        {
-                            usedLst = new List<GameObj>();
-                            gameObjects[currentSceneId] = usedLst;
-                        }
-                        else
-                        {
-                            usedLst = gameObjects[currentSceneId];
-                        }
-
-                        usedLst.Add(go);
-                        updateGameObjectFromsceneData(i, go, so);
-                        
-                    }
-
+                    loadObjectsOfScene(i);
                     lastScreenOffset += game.Graphics.PreferredBackBufferWidth;
                 }
             }
             else
             {
-                foreach (SceneObject so in mapData.Scenes[currentSceneId + concurrentSceneCount].Objects)
-                {
-                    GameObj go = null;
-
-                    if (freeGameObjects.Count > 0)
-                    {
-                        go = freeGameObjects[0];
-                        freeGameObjects.RemoveAt(0);
-                    }
-                    else
-                    {
-                        go = new GameObj();
-                    }
-
-                    List<GameObj> usedLst = null;
-
-                    if (!gameObjects.ContainsKey(currentSceneId))
-                    {
-                        usedLst = new List<GameObj>();
-                        gameObjects[currentSceneId] = usedLst;
-                    }
-                    else
-                    {
-                        usedLst = gameObjects[currentSceneId];
-                    }
-
-                    usedLst.Add(go);
-                    updateGameObjectFromsceneData(currentSceneId + concurrentSceneCount, go, so);
-                }
-
+                loadObjectsOfScene(currentSceneId + concurrentSceneCount - 1);
                 lastScreenOffset += game.Graphics.PreferredBackBufferWidth;
             }
 
@@ -166,7 +155,7 @@ namespace Cavejump.Screens
         private void updateGameObjectFromsceneData(int scene, GameObj go, SceneObject so)
         {
             go.SpriteName = "road_block";
-            base.ObjectManager.AddGameObject(go);
+            base.ObjectManager.AddGameObject(go, so.Lane);
 
             int offset = lastScreenOffset;
 
@@ -202,8 +191,8 @@ namespace Cavejump.Screens
             if (distanceTravelled >= 900)
             {
                 distanceTravelled -= 900;
-                currentSceneId++;
-                LoadCurrentScene();
+                //currentSceneId++;
+                LoadNextScene();
             }
             
         }
@@ -214,17 +203,56 @@ namespace Cavejump.Screens
 
             if (tl.Position.X < 400 && tl.State == TouchLocationState.Released)
             {
-                if (tl.Position.X < 200 && speed > 0)
-                {
-                    speed--;
-                }
-                else if (tl.Position.X > 200 && speed < 10)
-                {
-                    speed++;
-                }
+                int startTemp = (int)  (speedBar.Position.X - speedBar.W / 2);
+                int temp =(int) (tl.Position.X - startTemp);
+
+                if (temp < 0) temp = 0;
+                if (temp > 300) temp = 300;
+
+                speed = temp / 30;
+
+                speedKnob.UpdatePosition(startTemp + speed * 30, speedKnob.Position.Y);
+            }
+            else if (tl.State == TouchLocationState.Released && !skateObj.IsJumping)
+            {
+                skateObj.StartJump();
             }
 
             return true;
+        }
+
+        private void loadObjectsOfScene(int scene)
+        {
+            foreach (SceneObject so in mapData.Scenes[scene].Objects)
+            {
+                GameObj go = null;
+
+                if (freeGameObjects.Count > 0)
+                {
+                    go = freeGameObjects[0];
+                    freeGameObjects.RemoveAt(0);
+                }
+                else
+                {
+                    go = new GameObj();
+                }
+
+                List<GameObj> usedLst = null;
+
+                if (!gameObjects.ContainsKey(scene))
+                {
+                    usedLst = new List<GameObj>();
+                    gameObjects[scene] = usedLst;
+                }
+                else
+                {
+                    usedLst = gameObjects[scene];
+                }
+
+                usedLst.Add(go);
+                updateGameObjectFromsceneData(scene, go, so);
+
+            }
         }
     }
 }

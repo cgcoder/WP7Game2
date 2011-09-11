@@ -56,15 +56,6 @@
       <Time>2011-08-28T20:55:39.8159642-07:00</Time>
     </Item>
     <Item>
-      <Source>menuFont.spritefont</Source>
-      <Name>menuFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\menuFont.xnb</Output>
-      <Time>2011-08-28T17:24:49.8144255-07:00</Time>
-    </Item>
-    <Item>
       <Source>brown.png</Source>
       <Name>brown</Name>
       <Importer>TextureImporter</Importer>
@@ -90,6 +81,51 @@
       <Options>None</Options>
       <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\road_block.xnb</Output>
       <Time>2011-09-01T23:50:00.5350334-07:00</Time>
+    </Item>
+    <Item>
+      <Source>menuFont.spritefont</Source>
+      <Name>menuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\menuFont.xnb</Output>
+      <Time>2011-08-28T17:24:49.8144255-07:00</Time>
+    </Item>
+    <Item>
+      <Source>boy_skate.png</Source>
+      <Name>boy_skate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_skate.xnb</Output>
+      <Time>2011-09-08T00:12:45.4626962-07:00</Time>
+    </Item>
+    <Item>
+      <Source>speed.png</Source>
+      <Name>speed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\speed.xnb</Output>
+      <Time>2011-09-09T23:33:27.1609209-07:00</Time>
+    </Item>
+    <Item>
+      <Source>knob.png</Source>
+      <Name>knob</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\knob.xnb</Output>
+      <Time>2011-09-09T23:46:39.3772331-07:00</Time>
+    </Item>
+    <Item>
+      <Source>boy_shadow.png</Source>
+      <Name>boy_shadow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_shadow.xnb</Output>
+      <Time>2011-09-09T23:58:59.4345619-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -128,7 +164,7 @@
         <Value>2010-08-23T12:41:18-07:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
         <Value>2011-08-31T20:21:58.4563774-07:00</Value>
       </Assembly>
     </Assemblies>

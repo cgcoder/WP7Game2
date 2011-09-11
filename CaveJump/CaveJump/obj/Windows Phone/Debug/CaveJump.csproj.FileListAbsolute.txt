@@ -42,9 +42,7 @@ C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\obj\Windows Phone\Debug\Xap
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\brown.xnb
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\road.xnb
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\road_block.xnb
-C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\CaveJump.xap
-C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\AppManifest.xaml
-C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\obj\Windows Phone\Debug\WMAppManifest.xml.g
-C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\obj\Windows Phone\Debug\WMAppManifest.xml
-bin\Windows Phone\Debug\GameThumbnail.png
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_skate.xnb
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\speed.xnb
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\knob.xnb
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_shadow.xnb

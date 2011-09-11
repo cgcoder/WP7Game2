@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cavejump.Objects\ArmyMan.cs" />
+    <Compile Include="Cavejump.Objects\Skater.cs" />
     <Compile Include="Cavejump.Screens\OldPlayScreen_Old.cs" />
     <Compile Include="Cavejump.Screens\PlayScreen2.cs" />
     <Compile Include="Constants.cs" />
