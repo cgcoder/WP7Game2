@@ -46,3 +46,4 @@ C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Con
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\speed.xnb
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\knob.xnb
 C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_shadow.xnb
+C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\barricade.xnb

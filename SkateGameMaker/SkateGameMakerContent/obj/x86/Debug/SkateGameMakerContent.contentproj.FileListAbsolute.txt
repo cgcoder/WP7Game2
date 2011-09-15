@@ -1,0 +1,1 @@
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMakerContent\obj\x86\Debug\ResolveAssemblyReference.cache

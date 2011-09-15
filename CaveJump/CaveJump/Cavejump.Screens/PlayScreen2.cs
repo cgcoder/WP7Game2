@@ -20,7 +20,8 @@ namespace Cavejump.Screens
         private Dictionary<int, int> LanePositionY;
         private GameObj[] roadObjects;
         private Skater skateObj;
-        private int speed;
+        private float speed;
+        private float maxSpeed = 10;
         private int currentSceneId;
         private int concurrentSceneCount = 4;
         private int lastScreenOffset = 0;
@@ -32,6 +33,13 @@ namespace Cavejump.Screens
         private GameObj speedBar;
         private GameObj speedKnob;
 
+        private enum AccelerateState
+        {
+            ACC = 1, DEACC = 2
+        };
+
+        private AccelerateState accState;
+
         public PlayScreen2()
         {
             freeGameObjects = new List<GameObj>();
@@ -39,6 +47,7 @@ namespace Cavejump.Screens
             roadObjects = new GameObj[6];
 
             LanePositionY = new Dictionary<int, int>();
+            accState = AccelerateState.DEACC;
         }
 
         public override void LoadSprites(ContentManager conMan)
@@ -49,6 +58,7 @@ namespace Cavejump.Screens
             game.SprManager.LoadSprite("speed");
             game.SprManager.LoadSprite("knob");
             game.SprManager.LoadSprite("boy_shadow");
+            game.SprManager.LoadSprite("barricade");
         }
 
         public override void ScreenBecomesCurrent()
@@ -61,23 +71,21 @@ namespace Cavejump.Screens
                 roadObjects[i] = new GameObj();
                 roadObjects[i].SpriteName = "road";
                 base.ObjectManager.AddGameObject(roadObjects[i], Constants.ROAD);
-                roadObjects[i].UpdatePosition(roadObjects[i].W / 2 + i * roadObjects[i].W, 480 - roadObjects[i].H - 50);
+                roadObjects[i].UpdatePosition(roadObjects[i].W / 2 + i * roadObjects[i].W, 480 - roadObjects[i].H/2 - 100);
             }
 
             skateObj = new Skater();
-            skateObj.Lane = Constants.LANE_F_M;
+            skateObj.Lane = Constants.LANE_F_F;
             base.ObjectManager.AddGameObject(skateObj, skateObj.Lane);
 
             int roadTopEdge = (int) roadObjects[0].Position.Y - roadObjects[0].H/2 - skateObj.H/2 + 20;
-            LanePositionY.Add(Constants.LANE_M_B, roadTopEdge);
-            LanePositionY.Add(Constants.LANE_M_M, roadTopEdge + 15);
-            LanePositionY.Add(Constants.LANE_M_F, roadTopEdge + 30);
+            LanePositionY.Add(Constants.LANE_M_B, 270);
+            LanePositionY.Add(Constants.LANE_M_F, 290);
             int roadBottomEdge = (int)roadObjects[0].Position.Y + roadObjects[0].H / 2 - skateObj.H/2 + 10;
 
-            LanePositionY.Add(Constants.LANE_F_B, roadBottomEdge - 30);
-            LanePositionY.Add(Constants.LANE_F_M, roadBottomEdge - 15);
-            LanePositionY.Add(Constants.LANE_F_F, roadBottomEdge);
-            skateObj.UpdatePosition(100, LanePositionY[skateObj.ZOrder]);
+            LanePositionY.Add(Constants.LANE_F_B, 315);
+            LanePositionY.Add(Constants.LANE_F_F, 340);
+            skateObj.UpdatePosition(100, LanePositionY[skateObj.ZOrder] - skateObj.H/2);
 
             speedBar = new GameObj
             {
@@ -156,28 +164,49 @@ namespace Cavejump.Screens
 
         private void updateGameObjectFromsceneData(int scene, GameObj go, SceneObject so)
         {
-            go.SpriteName = "road_block";
-            base.ObjectManager.AddGameObject(go, so.Lane);
+            if (so.Type == Constants.ROAD_BLOCK_T)
+            {
+                go.SpriteName = "road_block";
+                base.ObjectManager.AddGameObject(go, so.Lane);
 
-            int offset = lastScreenOffset;
+                int offset = lastScreenOffset;
 
-            go.UpdatePosition(so.X + offset, LanePositionY[so.Lane]);
+                go.UpdatePosition(so.X + offset, LanePositionY[so.Lane] - go.W / 2);
+            }
+            else if (so.Type == Constants.BARRICADE)
+            {
+                go.SpriteName = "barricade";
+                base.ObjectManager.AddGameObject(go, so.Lane);
+
+                int offset = lastScreenOffset;
+
+                go.UpdatePosition(so.X + offset, LanePositionY[so.Lane] - go.W / 2);
+            }
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime time)
         {
             base.Update(time);
 
-            distanceTravelled += speed;
-            lastScreenOffset -= speed;
+            if (accState == AccelerateState.ACC && speed < maxSpeed)
+            {
+                speed += 0.2f;
+            }
+            else if (accState == AccelerateState.DEACC && speed > 0)
+            {
+                speed -= 0.2f;
+            }
+
+            distanceTravelled += (int) speed;
+            lastScreenOffset -= (int) speed;
 
             for(int i = 0; i < roadObjects.Length; i++)
             {
-                roadObjects[i].UpdatePosition(roadObjects[i].Position.X - speed, roadObjects[i].Position.Y);
+                roadObjects[i].UpdatePosition(roadObjects[i].Position.X - (int)speed, roadObjects[i].Position.Y);
 
                 if (roadObjects[i].Position.X < -roadObjects[0].W/2 - 10) // some grace
                 {
-                    int tx = (int) (i == 0 ? roadObjects[roadObjects.Length - 1].Position.X : roadObjects[i - 1].Position.X) + roadObjects[i].W - speed;
+                    int tx = (int) (i == 0 ? roadObjects[roadObjects.Length - 1].Position.X : roadObjects[i - 1].Position.X) + roadObjects[i].W - (int)speed;
                     roadObjects[i].UpdatePosition(tx, roadObjects[i].Position.Y);
                 }
             }
@@ -186,13 +215,13 @@ namespace Cavejump.Screens
             {
                 foreach (GameObj go in gos.Value)
                 {
-                    go.UpdatePosition(go.Position.X - speed, go.Position.Y);
+                    go.UpdatePosition(go.Position.X - (int)speed, go.Position.Y);
                 }
             }
 
-            if (distanceTravelled >= 900)
+            if (distanceTravelled >= game.Graphics.PreferredBackBufferWidth)
             {
-                distanceTravelled -= 900;
+                distanceTravelled -= game.Graphics.PreferredBackBufferWidth;
                 //currentSceneId++;
                 LoadNextScene();
             }
@@ -235,18 +264,13 @@ namespace Cavejump.Screens
             if (lowerLeft > -1)
             {
                 TouchLocation tl = tc[lowerLeft];
-
-                if (tl.Position.X < 400)
+                if (tl.State == TouchLocationState.Pressed)
                 {
-                    int startTemp = (int)(speedBar.Position.X - speedBar.W / 2);
-                    int temp = (int)(tl.Position.X - startTemp);
-
-                    if (temp < 0) temp = 0;
-                    if (temp > 300) temp = 300;
-
-                    speed = temp / 30;
-
-                    speedKnob.UpdatePosition(startTemp + speed * 30, speedKnob.Position.Y);
+                    accState = AccelerateState.ACC;
+                }
+                else if (tl.State == TouchLocationState.Released)
+                {
+                    accState = AccelerateState.DEACC;
                 }
             }
 
@@ -263,15 +287,10 @@ namespace Cavejump.Screens
             if (lowerRight > -1)
             {
                 TouchLocation tl = tc[lowerRight];
-
-                if (tl.State == TouchLocationState.Pressed)
+                if (tl.State == TouchLocationState.Released)
                 {
-                    lastRightBottom = (int) tl.Position.Y;
-                }
-                else if (tl.State == TouchLocationState.Moved)
-                {
-                    int temp = (int)tl.Position.Y - lastRightBottom;
-                    MoveSkaterLane(temp / 40);
+                    MoveSkaterLane(tl.Position.Y > 400 ? -1 : 1);
+                    
                 }
             }
 
@@ -282,13 +301,13 @@ namespace Cavejump.Screens
         {
             int lane = skateObj.Lane;
 
-            lane = lane - delta;
+            lane = lane + delta;
 
             lane = lane < Constants.MIN_LANE ? Constants.MIN_LANE : lane;
             lane = lane > Constants.MAX_LANE ? Constants.MAX_LANE : lane;
             skateObj.Lane = lane;
 
-            skateObj.UpdatePosition(skateObj.Position.X, LanePositionY[lane]);
+            skateObj.UpdatePosition(skateObj.Position.X, LanePositionY[lane] - skateObj.H/2);
         }
 
         private void loadObjectsOfScene(int scene)

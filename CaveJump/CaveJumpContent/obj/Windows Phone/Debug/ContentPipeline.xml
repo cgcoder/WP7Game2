@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\road.xnb</Output>
-      <Time>2011-09-02T02:20:30.2895058-07:00</Time>
+      <Time>2011-09-11T12:28:55.4073001-07:00</Time>
     </Item>
     <Item>
       <Source>road_block.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\road_block.xnb</Output>
-      <Time>2011-09-01T23:50:00.5350334-07:00</Time>
+      <Time>2011-09-11T12:11:54.5749119-07:00</Time>
     </Item>
     <Item>
       <Source>menuFont.spritefont</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_skate.xnb</Output>
-      <Time>2011-09-08T00:12:45.4626962-07:00</Time>
+      <Time>2011-09-11T12:06:03.5408339-07:00</Time>
     </Item>
     <Item>
       <Source>speed.png</Source>
@@ -126,6 +126,15 @@
       <Options>None</Options>
       <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\boy_shadow.xnb</Output>
       <Time>2011-09-09T23:58:59.4345619-07:00</Time>
+    </Item>
+    <Item>
+      <Source>barricade.png</Source>
+      <Name>barricade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\CaveJump\CaveJump\bin\Windows Phone\Debug\Content\barricade.xnb</Output>
+      <Time>2011-09-12T23:29:48.4649244-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

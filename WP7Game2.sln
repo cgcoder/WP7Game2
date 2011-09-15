@@ -1,30 +1,76 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2010 Express for Windows Phone
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaveJump", "CaveJump\CaveJump\CaveJump.csproj", "{0274C619-C2BF-41CE-A27D-D9E3C3945932}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "CaveJumpContent", "CaveJump\CaveJumpContent\CaveJumpContent.contentproj", "{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaveJumpContent", "CaveJump\CaveJumpContent\CaveJumpContent.contentproj", "{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juicy.Engine", "..\GameEngine\Juicy.Engine\Juicy.Engine.csproj", "{96547C05-7EE1-4439-85B3-0FC95A8C298D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkateGameMaker", "SkateGameMaker\SkateGameMaker\SkateGameMaker.csproj", "{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SkateGameMakerContent", "SkateGameMaker\SkateGameMakerContent\SkateGameMakerContent.contentproj", "{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Windows Phone = Debug|Windows Phone
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|Windows Phone = Release|Windows Phone
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Mixed Platforms.Build.0 = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Mixed Platforms.Deploy.0 = Debug|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|x86.ActiveCfg = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Debug|x86.Build.0 = Debug|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Mixed Platforms.Build.0 = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Mixed Platforms.Deploy.0 = Release|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.Build.0 = Release|Windows Phone
 		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|x86.ActiveCfg = Release|Windows Phone
+		{0274C619-C2BF-41CE-A27D-D9E3C3945932}.Release|x86.Build.0 = Release|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
 		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Debug|x86.ActiveCfg = Debug|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
 		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{D4A401E7-BD53-42C6-9115-EBCDF3EBFDC3}.Release|x86.ActiveCfg = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Mixed Platforms.Build.0 = Debug|Windows Phone
 		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
 		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|x86.ActiveCfg = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Debug|x86.Build.0 = Debug|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Mixed Platforms.Build.0 = Release|Windows Phone
 		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
 		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|x86.ActiveCfg = Release|Windows Phone
+		{96547C05-7EE1-4439-85B3-0FC95A8C298D}.Release|x86.Build.0 = Release|Windows Phone
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Debug|x86.ActiveCfg = Debug|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Debug|x86.Build.0 = Debug|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Release|Windows Phone.ActiveCfg = Release|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Release|x86.ActiveCfg = Release|x86
+		{D8C4FD64-ED35-4E22-8C6D-87A98A62FDF6}.Release|x86.Build.0 = Release|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Debug|x86.ActiveCfg = Debug|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Release|Windows Phone.ActiveCfg = Release|x86
+		{6D8A06EC-8E6E-4310-A64F-F8B28C36ACF4}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,12 @@
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\barricade.xnb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\boy_skate.xnb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\road.xnb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\road_block.xnb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\SkateGameMaker.exe
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\SkateGameMaker.pdb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\obj\x86\Debug\SkateGameMaker.exe
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\obj\x86\Debug\SkateGameMaker.pdb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\black.xnb
+C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\smallFont.xnb

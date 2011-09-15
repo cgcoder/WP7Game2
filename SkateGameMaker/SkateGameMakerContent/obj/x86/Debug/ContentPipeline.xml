@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>barricade.png</Source>
+      <Name>barricade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\barricade.xnb</Output>
+      <Time>2011-09-13T00:03:34.8558274-07:00</Time>
+    </Item>
+    <Item>
+      <Source>boy_skate.png</Source>
+      <Name>boy_skate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\boy_skate.xnb</Output>
+      <Time>2011-09-13T00:03:34.8588275-07:00</Time>
+    </Item>
+    <Item>
+      <Source>road.png</Source>
+      <Name>road</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\road.xnb</Output>
+      <Time>2011-09-13T00:03:34.8618277-07:00</Time>
+    </Item>
+    <Item>
+      <Source>road_block.png</Source>
+      <Name>road_block</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\road_block.xnb</Output>
+      <Time>2011-09-13T00:03:34.8648279-07:00</Time>
+    </Item>
+    <Item>
+      <Source>black.png</Source>
+      <Name>black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\black.xnb</Output>
+      <Time>2011-09-13T00:07:58.9249312-07:00</Time>
+    </Item>
+    <Item>
+      <Source>smallFont.spritefont</Source>
+      <Name>smallFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\smallFont.xnb</Output>
+      <Time>2011-09-13T00:53:29.322101-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMakerContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMakerContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\gopichan\code\cs\WP7Game2\SkateGameMaker\SkateGameMaker\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-08-31T20:21:58.4563774-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
